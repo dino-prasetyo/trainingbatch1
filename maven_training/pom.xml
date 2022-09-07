@@ -9,52 +9,65 @@
     <version>1.0</version>
 
     <packaging>jar</packaging>
-
+    <profiles>
+        <profile>
+            <id>development</id>
+            <properties>
+                <database.url>jdbc:h2:tcp://localhost/~/test</database.url>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <database.url>jdbc:h2:tcp://localhost/~/serverTest</database.url>
+            </properties>
+        </profile>
+    </profiles>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>3.1.1.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-asm</artifactId>
-            <version>3.1.1.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>3.1.1.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>3.1.1.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-expression</artifactId>
-            <version>3.1.1.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>3.0.7.RELEASE</version>
+            <version>${spring-jdbc.version}</version>
         </dependency>
        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-dao</artifactId>
-            <version>2.0.3</version>
+            <version>${spring-dao.version}</version>
         </dependency>
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
-            <version>1.2</version>
+            <version>${commons-logging.version}</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.200</version>
+            <version>${h2.version}</version>
 <!--            <scope>test</scope>-->
         </dependency>
 
@@ -107,6 +120,11 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring.version>3.1.1.RELEASE</spring.version>
+        <spring-jdbc.version>3.0.7.RELEASE</spring-jdbc.version>
+        <spring-dao.version>2.0.3</spring-dao.version>
+        <commons-logging.version>1.2</commons-logging.version>
+        <h2.version>1.4.200</h2.version>
     </properties>
 
 </project>
