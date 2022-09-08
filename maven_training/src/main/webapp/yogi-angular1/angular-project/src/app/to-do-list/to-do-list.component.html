@@ -1,1 +1,16 @@
-<p>to-do-list works!</p>
+<div class="ui container">
+  <h1 style="padding-top: 2rem; text-align: center;">Angular Todo List</h1>
+  <div class="ui form">
+    <div class="ui field">
+      <input type="text" autofocus [(ngModel)]="desc" name="desc" (keyup.enter)="saveTask()" autocomplete="off" placeholder="Ketik disini, Enter untuk menyimpan tugas.">
+    </div>
+    <div class="ui centered card" style="width: 100%;">
+      <div class="content">
+        <span class="ui left floated">Deskripsi tugas</span>
+        <span class="ui right floated">
+                    <button class="ui inverted blue button">Done</button>
+                </span>
+      </div>
+    </div>
+  </div>
+</div>
