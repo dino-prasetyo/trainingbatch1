@@ -5,12 +5,14 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ToDoListComponent } from "./to-do-list/to-do-list.component";
+import { HeaderBaruComponent} from "./header-baru/header-baru.component";
 
 const appRoutes: Routes = [
   { path: '',     component:  HomeComponent },
   { path: 'about',  component:  AboutComponent},
   { path: 'contact',  component:  ContactComponent},
   { path: 'to-do-list', component: ToDoListComponent },
+  { path: 'header-baru', component: HeaderBaruComponent },
   { path: '**',   redirectTo: ''}
 ];
 

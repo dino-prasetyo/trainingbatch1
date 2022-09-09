@@ -1,0 +1,16 @@
+.header {
+  padding: 100px;
+  background-color: purple;
+}
+.header .headerp1{
+  text-align: center;
+}
+.contentmain{
+  padding: 20px 150px 20px 150px;
+  background-color: #333333;
+  color: white;
+}
+.contentmain h2{
+  margin-bottom: 30px;
+}
+

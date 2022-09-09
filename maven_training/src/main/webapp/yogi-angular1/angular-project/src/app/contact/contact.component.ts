@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
+  message = " default value"
+  keydown(e:any)
+  {
+    this.message =e.target.value;
+  }
   constructor() { }
 
   ngOnInit(): void {

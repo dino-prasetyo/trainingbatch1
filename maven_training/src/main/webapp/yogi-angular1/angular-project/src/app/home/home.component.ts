@@ -7,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  nama = "Yogi Anggoro"
+  isDisabled = true;
   constructor() { }
 
+  getTittle(){
+    return "here is a tittle";
+            }
   ngOnInit(): void {
   }
 
