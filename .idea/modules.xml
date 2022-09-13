@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/maven_training/maven_training.iml" filepath="$PROJECT_DIR$/maven_training/maven_training.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_boot_dino/spring_boot_dino.iml" filepath="$PROJECT_DIR$/spring_boot_dino/spring_boot_dino.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/trainingbatch1.iml" filepath="$PROJECT_DIR$/.idea/trainingbatch1.iml" />
+    </modules>
+  </component>
+</project>

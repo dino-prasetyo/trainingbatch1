@@ -6,6 +6,7 @@ import {StudentRegistration} from "./student-registration";
 import {RouterModule, Routes} from "@angular/router";
 import {MainClass} from "./main-class";
 import { MataPelajaranComponent } from './mata-pelajaran/mata-pelajaran.component';
+import { DesaFormComponent } from './desa-form/desa-form.component';
 
 export const routes : Routes = [
   {
@@ -22,7 +23,8 @@ export const routes : Routes = [
     MainClass,
     AppComponent,
     StudentRegistration,
-    MataPelajaranComponent
+    MataPelajaranComponent,
+    DesaFormComponent
   ],
   imports: [
     BrowserModule
