@@ -17,4 +17,8 @@ public class DesaService
     {
         return desaRepo.findAll();
     }
+    public List<DesaEntity> searchByNama(String strNamaDesa)
+    {
+        return desaRepo.findByNamaDesaLike(strNamaDesa);
+    }
 }
