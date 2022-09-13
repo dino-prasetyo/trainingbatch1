@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import {StudentRegistration} from "./student-registration";
 import {RouterModule, Routes} from "@angular/router";
 import {MainClass} from "./main-class";
+import { MataPelajaranComponent } from './mata-pelajaran/mata-pelajaran.component';
 
 export const routes : Routes = [
   {
@@ -20,7 +21,8 @@ export const routes : Routes = [
   declarations: [
     MainClass,
     AppComponent,
-    StudentRegistration
+    StudentRegistration,
+    MataPelajaranComponent
   ],
   imports: [
     BrowserModule
