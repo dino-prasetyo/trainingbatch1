@@ -1,5 +1,18 @@
 <p>
-  Id Desa = {{desaEntity.idDesa}}<br>
-  Id Kecamatan = {{desaEntity.idKecamatan}}<br>
-  Nama Desa = {{desaEntity.namaDesa}}<br>
-</p>
+<div class="row">
+  <div class="col-md-2">ID Desa</div>
+  <div class="col-md-2">ID Kecamatan</div>
+  <div class="col-md-4">Nama Desa</div>
+</div>
+
+<div *ngFor="let desa of desaEntity">
+  <div class="row">
+    <div class="col-md-2">{{desa.idDesa}}</div>
+    <div class="col-md-2">{{desa.idKecamatan}}</div>
+    <div class="col-md-4">{{desa.namaDesa}}</div>
+  </div>
+</div>
+
+<div class="row">
+  <button class="btn-success" (click)="simpan()">Save</button>
+</div>

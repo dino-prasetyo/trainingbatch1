@@ -36,4 +36,13 @@ public class DesaApi
         return desaService.searchByNama(namaDesa);
     }
     
+    @RequestMapping(value = "/save",
+        method = RequestMethod.POST,
+        consumes = MediaType.APPLICATION_JSON_VALUE,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    public void save(@RequestBody DesaEntity desa)
+    {
+         desaService.save(desa);
+    }
+    
 }

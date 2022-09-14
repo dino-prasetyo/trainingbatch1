@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable, throwError} from 'rxjs';
 
 
 export interface DesaEntity {
@@ -16,28 +15,41 @@ export interface DesaEntity {
 })
 
 export class DesaFormComponent implements OnInit {
-  desaEntity: DesaEntity = {
-    idDesa: "",
-    idKecamatan: "",
-    namaDesa: ""
-  }
+  desaEntity: DesaEntity[]=[];
 
   constructor(private http: HttpClient) {
   }
 
   ngOnInit(): void {
+    this.getAllData();
+    console.log(this.desaEntity)
+  }
+  getAllData()
+  {
     this.http.get<DesaEntity>('http://localhost:4200/api/desa/all')
       .subscribe((data: any) => {
         this.getValue(data)
       });
-    console.log(this.desaEntity)
   }
-
   getValue(data: DesaEntity[]) {
     if (data) {
-      this.desaEntity.idDesa = data[0].idDesa;
-      this.desaEntity.idKecamatan = data[0].idKecamatan;
-      this.desaEntity.namaDesa = data[0].namaDesa;
+      data.forEach((obj)=>{
+        this.desaEntity.push(obj);
+      });
     }
+  }
+  simpan()
+  {
+    let id = Math.random()*100;
+    let desaObj:any = {
+      idDesa: id,
+      idKecamatan:1,
+      namaDesa:"Desa_"+id
+    }
+    this.http.post('http://localhost:4200/api/desa/save'
+      ,desaObj)
+      .subscribe();
+    this.desaEntity=[];
+    this.getAllData();
   }
 }
