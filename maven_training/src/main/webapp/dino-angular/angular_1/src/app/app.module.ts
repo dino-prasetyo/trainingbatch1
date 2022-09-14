@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import {StudentRegistration} from "./student-registration";
@@ -16,6 +17,10 @@ export const routes : Routes = [
   {
     path : "student",
     component : StudentRegistration
+  },
+  {
+    path : "desa",
+    component : DesaFormComponent
   }
 ]
 @NgModule({
@@ -29,6 +34,7 @@ export const routes : Routes = [
   imports: [
     BrowserModule
     , RouterModule.forRoot(routes)
+    ,HttpClientModule
   ],
   providers: [],
   bootstrap: [MainClass],

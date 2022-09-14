@@ -4,6 +4,9 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-root',
   template: ' <div>\n' +
+    '  <button (click)="openStudentRegistration(\'desa\')" tabindex="0">\n' +
+    '          <span>Open Desa Form</span>\n' +
+    '        </button>\n' +
     '  <button (click)="openStudentRegistration(\'student\')" tabindex="0">\n' +
     '          <span>Open Student Form</span>\n' +
     '        </button>\n' +
