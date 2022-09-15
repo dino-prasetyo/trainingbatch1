@@ -1,0 +1,19 @@
+.formbig {
+  background-color: purple;
+}
+.container{
+  background-color: white;
+  border-radius: 25px;
+}
+.judulform{
+  text-align: center;
+}
+label{
+}
+.row{
+  margin-top: 20px;
+}
+li{
+  list-style: none;
+}
+

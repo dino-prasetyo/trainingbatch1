@@ -1,3 +1,142 @@
 <p>contact works!</p>
 <input type="text" (keydown)="keydown($event)"/>
 <h3>{{message}}</h3>
+<div class="col-lg-5">
+  <table class="table text-center">
+  <thead>
+  <tr>
+    <th scope="col">Id Desa</th>
+    <th scope="col">Id Kecamatan</th>
+    <th scope="col">Nama Desa</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let desa of desaEntity" data-bs-toggle="modal" data-bs-target="#update_data">
+    <td>{{desa.idDesa}}</td>
+    <td>{{desa.idKecamatan}}</td>
+    <td>{{desa.namaDesa}}</td>
+  </tr>
+  </tbody>
+</table>
+</div><br>
+<button style="margin-left: 10px" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah_desa">
+<!--(click)="addData()"-->
+Tambah Data desa</button>
+
+
+<!-- Modal update -->
+<div class="modal fade" id="update_data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Data Desa</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+<!--        //1-->
+        <div class="row">
+          <div class="col-lg-3">
+            <label  class="form-label">ID Desa</label>
+          </div>
+          <div class="col-lg-9">
+            <input type="number"  class="form-control" placeholder="xxx">
+          </div>
+        </div>
+<!--        //2-->
+        <div class="row mt-1">
+          <div class="col-lg-3">
+            <label  class="form-label">ID Kecamatan</label>
+          </div>
+          <div class="col-lg-9">
+            <input type="number"  class="form-control" placeholder="xxx">
+          </div>
+        </div>
+<!--        //3-->
+        <div class="row mt-1">
+          <div class="col-lg-3">
+            <label  class="form-label">Nama Desa</label>
+          </div>
+          <div class="col-lg-9">
+            <input type="type"  class="form-control" placeholder="Tentram Jaya">
+          </div>
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal add -->
+<div class="modal fade" id="tambah_desa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" >Tambah Desa</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!--        //1-->
+        <div class="row">
+          <div class="col-lg-3">
+            <label  class="form-label">ID Desa</label>
+          </div>
+          <div class="col-lg-9">
+            <input type="number"  class="form-control" placeholder="xxx" [(ngModel)]="idDesaNew" >
+          </div>
+        </div>
+        <!--        //2-->
+<!--        <div class="row mt-1">-->
+<!--          <div class="col-lg-3">-->
+<!--            <label  class="form-label">ID Kecamatan</label>-->
+<!--          </div>-->
+<!--          <div class="col-lg-9">-->
+<!--            <select type="number"  class="form-control form-select" [(ngModel)]="idKecamatanNew">-->
+<!--            <option *ngFor="let kecamatan of kecamatanEntity" value="{{kecamatan.idKecamatan}}">{{kecamatan.idKecamatan}}. {{kecamatan.namaKecamatan}}</option>-->
+<!--            </select>-->
+<!--          </div>-->
+        <div class="row mt-1">
+          <div class="col-lg-3">
+            <label  class="form-label">ID Kecamatan</label>
+          </div>
+          <div class="col-lg-9">
+        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+        <datalist id="datalistOptions">
+          <option *ngFor="let kecamatan of kecamatanEntity" value="{{kecamatan.idKecamatan}}">{{kecamatan.namaKecamatan}}</option>
+        </datalist>
+        </div>
+<!--          <div class="input-group mb-3 col-lg-12">-->
+<!--            <div class="col-lg-3">-->
+<!--              <label  class="form-label">ID Kecamatan</label>-->
+<!--            </div>-->
+<!--            <select class="form-select col-lg-9" >-->
+<!--              <option selected>Choose...</option>-->
+<!--              <option value="1">One</option>-->
+<!--              <option value="2">Two</option>-->
+<!--              <option value="3">Three</option>-->
+<!--            </select>-->
+<!--          </div>-->
+        </div>
+        <!--        //3-->
+        <div class="row mt-1">
+          <div class="col-lg-3">
+            <label  class="form-label">Nama Desa</label>
+          </div>
+          <div class="col-lg-9">
+            <input type="text"  class="form-control" placeholder="Tentram Jaya" [(ngModel)]="namaDesaNew">
+          </div>
+        </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="addDataNew()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

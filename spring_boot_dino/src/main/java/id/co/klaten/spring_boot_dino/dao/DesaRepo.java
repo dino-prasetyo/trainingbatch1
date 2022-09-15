@@ -15,4 +15,6 @@ public interface DesaRepo extends JpaRepository<DesaEntity, Integer>
     public List<DesaEntity> searchByNama(@Param("namaDesa") String strNamaDesa);
     
     List<DesaEntity> findByNamaDesaLike(String namaDesa);
+
+
 }
