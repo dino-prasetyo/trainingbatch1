@@ -1,15 +1,27 @@
 package id.co.klaten.spring_boot_dino.api;
 
 import id.co.klaten.spring_boot_dino.model.DesaEntity;
+import id.co.klaten.spring_boot_dino.model.TableImageEntity;
 import id.co.klaten.spring_boot_dino.service.DesaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 @RestController
@@ -43,6 +55,34 @@ public class DesaApi
     public void save(@RequestBody DesaEntity desa)
     {
          desaService.save(desa);
+    }
+    @RequestMapping(value = "/saveImage",
+        method = RequestMethod.POST,
+        consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
+        produces = MediaType.IMAGE_JPEG_VALUE)
+    public ResponseEntity<InputStreamResource> saveImage(@RequestPart MultipartFile dataImage)
+    {
+        System.out.println("........>>>>> Panjang data = "+dataImage.getSize());
+        
+        
+        try
+        {
+            InputStream inputStream = dataImage.getInputStream();
+            TableImageEntity tableImageEntity = new TableImageEntity();
+            byte[] data = new byte[(int)dataImage.getSize()];
+            inputStream.read(data);
+            tableImageEntity.setImage(data);
+            desaService.saveImage(tableImageEntity);
+            ByteArrayInputStream bis = new ByteArrayInputStream(data);
+            return ResponseEntity
+                    .ok()
+                    .contentType(MediaType.IMAGE_JPEG)
+                    .body(new InputStreamResource(bis));
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok(null);
     }
     
 }
