@@ -15,6 +15,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -34,8 +38,12 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatTableModule,
     MatSidenavModule,
-    MatIconModule
-  ],
+    MatIconModule,
+    FlexLayoutModule,
+    MatFormFieldModule,
+    MatInputModule,
+    HttpClientModule
+      ],
   providers: [],
   bootstrap: [AppComponent]
 })
