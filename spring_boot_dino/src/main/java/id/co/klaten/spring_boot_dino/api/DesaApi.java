@@ -60,24 +60,30 @@ public class DesaApi
         method = RequestMethod.POST,
         consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
         produces = MediaType.IMAGE_JPEG_VALUE)
-    public ResponseEntity<InputStreamResource> saveImage(@RequestPart MultipartFile dataImage)
+    public ResponseEntity<InputStreamResource> saveImage(@RequestPart("dataImage") MultipartFile fileUpload)
     {
-        System.out.println("........>>>>> Panjang data = "+dataImage.getSize());
+        System.out.println("........>>>>> Panjang data = "+fileUpload.getSize());
         
         
         try
         {
-            InputStream inputStream = dataImage.getInputStream();
+            String originalFilename = fileUpload.getOriginalFilename();
+            File file = new File("LOKASI_FILE" + originalFilename);
+            InputStream inputStream = fileUpload.getInputStream();
             TableImageEntity tableImageEntity = new TableImageEntity();
-            byte[] data = new byte[(int)dataImage.getSize()];
+            byte[] data = new byte[(int)fileUpload.getSize()];
             inputStream.read(data);
             tableImageEntity.setImage(data);
             desaService.saveImage(tableImageEntity);
+    
+            FileInputStream fileInputStream = new FileInputStream(file);
+            InputStreamResource inputStreamResource = new InputStreamResource(fileInputStream);
             ByteArrayInputStream bis = new ByteArrayInputStream(data);
             return ResponseEntity
                     .ok()
                     .contentType(MediaType.IMAGE_JPEG)
-                    .body(new InputStreamResource(bis));
+                    .body(inputStreamResource);
+                    //.body(new InputStreamResource(bis));
         } catch (IOException e)
         {
             e.printStackTrace();

@@ -1,32 +1,34 @@
-<p>
-  <!--
-  <div class="row">
-    <div class="col-md-2">ID Desa</div>
-    <div class="col-md-2">ID Kecamatan</div>
-    <div class="col-md-4">Nama Desa</div>
-  </div>
-
-  <div *ngFor="let desa of desaEntity">
+<div class="container">
+  <p>
+    <!--
     <div class="row">
-      <div class="col-md-2">{{desa.idDesa}}</div>
-      <div class="col-md-2">{{desa.idKecamatan}}</div>
-      <div class="col-md-4">{{desa.namaDesa}}</div>
+      <div class="col-md-2">ID Desa</div>
+      <div class="col-md-2">ID Kecamatan</div>
+      <div class="col-md-4">Nama Desa</div>
+    </div>
+
+    <div *ngFor="let desa of desaEntity">
+      <div class="row">
+        <div class="col-md-2">{{desa.idDesa}}</div>
+        <div class="col-md-2">{{desa.idKecamatan}}</div>
+        <div class="col-md-4">{{desa.namaDesa}}</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <button class="btn-success" (click)="simpan()">Save</button>
+    </div>
+    -->
+  <div class="row">
+    <div class="col-sm-2"><label>File Name</label></div>
+    <div class="col-sm-4">
+      <input type="file" name="dataImage" #fileUpload>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn-success" (click)="saveImage()">Simpan</button>
     </div>
   </div>
-
   <div class="row">
-    <button class="btn-success" (click)="simpan()">Save</button>
+    Image = <img [src]="imageShow" alt="Image">
   </div>
-  -->
-<div class="row">
-  <div class="col-sm-2"><label>File Name</label></div>
-  <div class="col-sm-4">
-    <input type="file" (change)="onFileSelected($event)" name="dataImage" #fileUpload>
-  </div>
-  <div class="col-sm-2">
-    <button class="btn-success" (click)="simpan()">Simpan</button>
-  </div>
-</div>
-<div class="row">
-  Image = <img [src]="imageShow" alt="Image">
 </div>

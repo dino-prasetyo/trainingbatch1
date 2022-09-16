@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8085/oauth/token_key
+          jwk-set-uri: http://localhost:8085/oauth2/keys
+        opaquetoken:
+          client-id: web-client
+          client-secret: pass
+

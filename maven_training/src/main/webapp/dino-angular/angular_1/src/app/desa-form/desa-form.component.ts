@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 
@@ -15,6 +15,8 @@ export interface DesaEntity {
 })
 
 export class DesaFormComponent implements OnInit {
+  @ViewChild("fileUpload") fileUpload: ElementRef = {} as ElementRef ;
+
   desaEntity: DesaEntity[] = [];
   fileName = '';
   imageShow: any;
@@ -56,9 +58,9 @@ export class DesaFormComponent implements OnInit {
     this.getAllData();
   }
 
-  onFileSelected(event: any) {
+  saveImage() {
 
-    const file: File = event.target.files[0];
+    const file: File = this.fileUpload.nativeElement.files[0];
 
     if (file) {
 

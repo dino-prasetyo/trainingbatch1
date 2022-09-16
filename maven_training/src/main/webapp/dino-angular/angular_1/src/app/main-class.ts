@@ -3,17 +3,18 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
-  template: ' <div>\n' +
-    '  <button (click)="openStudentRegistration(\'desa\')" tabindex="0">\n' +
+  template: '<div class="row"> <div class="container center-block">\n' +
+    '  <button class="col-md-2" (click)="openStudentRegistration(\'desa\')" tabindex="0">\n' +
     '          <span>Open Desa Form</span>\n' +
     '        </button>\n' +
-    '  <button (click)="openStudentRegistration(\'student\')" tabindex="0">\n' +
+    '  <button class="col-md-2" (click)="openStudentRegistration(\'student\')" tabindex="0">\n' +
     '          <span>Open Student Form</span>\n' +
     '        </button>\n' +
-    ' <button (click)="openStudentRegistration(\'app\')" tabindex="0">\n' +
+    ' <button class="col-md-2" (click)="openStudentRegistration(\'app\')" tabindex="0">\n' +
     '          <span>Open App</span>\n' +
     '        </button>\n' +
-    '   <router-outlet></router-outlet>\n' +
+    '  </div></div>' +
+    '<div class="row"> <router-outlet></router-outlet>\n' +
     '  </div>'
 })
 
