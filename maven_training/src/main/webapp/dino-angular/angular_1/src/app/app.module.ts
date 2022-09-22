@@ -8,6 +8,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {MainClass} from "./main-class";
 import { MataPelajaranComponent } from './mata-pelajaran/mata-pelajaran.component';
 import { DesaFormComponent } from './desa-form/desa-form.component';
+import {Authorization} from "./security/authorization.service";
 
 export const routes : Routes = [
   {
@@ -36,7 +37,7 @@ export const routes : Routes = [
     , RouterModule.forRoot(routes)
     ,HttpClientModule
   ],
-  providers: [],
+  providers: [Authorization],
   bootstrap: [MainClass],
   exports: [RouterModule]
 })
