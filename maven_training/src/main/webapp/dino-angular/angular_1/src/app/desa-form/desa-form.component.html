@@ -24,11 +24,22 @@
     <div class="col-sm-4">
       <input type="file" name="dataImage" #fileUpload>
     </div>
-    <div class="col-sm-2">
-      <button class="btn-success" (click)="saveImage()">Simpan</button>
-    </div>
+
   </div>
   <div class="row">
     Image = <img [src]="imageShow" alt="Image">
+  </div>
+  <div class="row">
+    <div class="col-sm-2"><label>User Name</label></div>
+    <div class="col-sm-3"><input type="text" [value]="username"></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2"><label>Password</label></div>
+    <div class="col-sm-3"><input type="text" [value]="password"></div>
+  </div>
+  <div class="row">
+  <div class="col-sm-2">
+    <button class="btn-success" (click)="login()">Login</button>
+  </div>
   </div>
 </div>
