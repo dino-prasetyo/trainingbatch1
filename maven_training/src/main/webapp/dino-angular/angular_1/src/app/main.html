@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="container center-block">
+    <button class="col-md-2" (click)="openForm('(kiri:desa)')" tabindex="0">
+      <span>Open Desa Form</span>
+    </button>
+    <button class="col-md-2" (click)="openForm('(kanan:student)')" tabindex="0">
+      <span>Open Student Form</span>
+    </button>
+    <button class="col-md-2" (click)="openForm('(kanan:app)')" tabindex="0">
+      <span>Open App</span>
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div style="position: absolute;width: 300px;border: 3px">
+    <router-outlet name="kiri"></router-outlet>
+  </div>
+
+  <div style="position: absolute;left:301px;width: 300px;border: 3px;border-color: red">
+    <router-outlet name="kanan"></router-outlet>
+  </div>
+
+</div>

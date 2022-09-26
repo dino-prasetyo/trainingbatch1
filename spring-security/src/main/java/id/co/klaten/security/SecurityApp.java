@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @EntityScan("id.co.klaten")
 @EnableJpaRepositories("id.co.klaten")
-@EnableJms
+//@EnableJms
 public class SecurityApp
 {
     

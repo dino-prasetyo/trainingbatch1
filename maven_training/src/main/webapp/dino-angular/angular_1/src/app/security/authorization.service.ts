@@ -12,26 +12,27 @@ export class Authorization {
 
   login(userName:any, pasdword:any)
   {
-    const headers: HttpHeaders = new HttpHeaders();
-    headers.append('Authorization', 'Basic ' + btoa("web-client:pass"))
-      .append('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.set('Authorization', 'Basic ' + btoa("web-client:pass"))
+      .set('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
 
-    const bodyParam:HttpParams = new HttpParams()
-    bodyParam.set("grant_type", "password");
-    bodyParam.set("client_id", "web-client");
-    bodyParam.set("client_secret", "pass");
-    bodyParam.set("username", userName);
-    bodyParam.set("password", pasdword);
+    let bodyParam:HttpParams = new HttpParams()
+          .set("grant_type", "password")
+          .set("client_id", "web-client")
+          .set("client_secret", "pass")
+          .set("username", userName)
+          .set("password", pasdword);
 
     this.http.post("http://localhost:4200/oauth/token", bodyParam, {
       headers: headers
     })
       .subscribe((data:any)=>{
         this._token = data.access_token;
-      });
+        console.log(this._token)
+      })
   }
 
-  post(url:any,body:any)
+  post(url:any,body:any, additionalFunction:any)
   {
     const headers: HttpHeaders = new HttpHeaders();
     headers.append('Authorization', 'Bearer ' + this._token)
@@ -40,7 +41,9 @@ export class Authorization {
     this.http.post(url, body, {
       headers: headers
     })
-      .subscribe();
+      .subscribe((data)=>
+      {
+      }).add(additionalFunction);
   }
 
   get(url:any,param:any)

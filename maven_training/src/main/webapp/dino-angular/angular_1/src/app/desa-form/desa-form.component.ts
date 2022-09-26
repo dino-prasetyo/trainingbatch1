@@ -21,15 +21,14 @@ export class DesaFormComponent implements OnInit {
   desaEntity: DesaEntity[] = [];
   fileName = '';
   imageShow: any;
-  username: any= "test1";
-  password: any = "test1";
+  username: any= "user1";
+  password: any = "test";
 
   constructor(private http: HttpClient, private authorization:Authorization) {
   }
 
   ngOnInit(): void {
     // this.getAllData();
-    console.log(this.desaEntity)
   }
 
   getAllData() {
@@ -64,7 +63,10 @@ export class DesaFormComponent implements OnInit {
   login() {
     this.authorization.login(this.username, this.password)
   }
-
+  fungsiTambahan()
+  {
+    console.log("test")
+  }
   save()
   {
     const url :any = "/api/save"
@@ -74,7 +76,7 @@ export class DesaFormComponent implements OnInit {
         idKecamatan:1,
         namaDesa:"test est"
       }
-    this.authorization.post(url, body)
+    this.authorization.post(url, body, this.fungsiTambahan)
   }
 
 }
